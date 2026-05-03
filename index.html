@@ -14,11 +14,6 @@
   <canvas class="webgl"></canvas>
   <h1 class="h1text">This is for you, Illi</h1>
   <button id="play-music" type="button" aria-label="Play music">
-    <svg fill="currentColor" viewBox="0 0 512 512" width="100" title="music">
-      <path
-        d="M470.38 1.51L150.41 96A32 32 0 0 0 128 126.51v261.41A139 139 0 0 0 96 384c-53 0-96 28.66-96 64s43 64 96 64 96-28.66 96-64V214.32l256-75v184.61a138.4 138.4 0 0 0-32-3.93c-53 0-96 28.66-96 64s43 64 96 64 96-28.65 96-64V32a32 32 0 0 0-41.62-30.49z"
-      />
-    </svg>
   </button>
   <script type="x-shader/x-vertex" id="vertexShader">
       #define M_PI 3.1415926535897932384626433832795
@@ -39,7 +34,7 @@
       float radius = 0.14;
       vec3 myOffset =
           vec3(t,  1.0, 0.0);
-      myOffset = vec3(radius *16.0 * pow(sin(t), 2.0) * sin(t), radius * (13.0 * cos(t) - 5.0 * cos(2.0 * t) - 2.0 * cos(3.0 * t) - cos(4.0 * t)), .15*(a*(random1 - .5))*sin(abs(10.0*(sin(.2*uTime + .2*random)))*t));
+      myOffset = vec3(radius *16.0 * pow(sin(t), 2.0) * sin(t), radius * (13.0 * cos(t) - 5.0 * cos(2.0 * t) - 2.0 * cos(3.0 * t) - cos(4.0 * t)), .15*(a*(random1 - .5))*sin(abs(10.0*(sin(.2*uTime + random1))))),0.);
       vec3 displacedPosition = myOffset;
       vec4 modelPosition = modelMatrix * vec4(displacedPosition.xyz, 1.0);
 
